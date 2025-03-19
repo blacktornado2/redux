@@ -14,7 +14,7 @@ const actions = {
 // Store
 const store = createStore(reducer, applyMiddleware(logger.default, thunk)); // createStore is deprecated, we can use legacy_createStore as createStore
 
-// Reducer
+// Reducer: Pure function
 function reducer(state={amount: 1}, action) {
     switch(action.type) {
         case("INCREMENT"): 

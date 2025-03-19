@@ -45,7 +45,8 @@ Immutability:
 
 Middlewares:
 
-
 -> Things to learn:
 - json-server module
 - redxu-thunk
+- reducer function to be used in thunk
+- three actions: pending, success and failed 
