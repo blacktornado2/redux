@@ -3,6 +3,14 @@ import logger from 'redux-logger';
 import axios from 'axios';
 import {thunk} from 'redux-thunk';
 
+// Make action type constant
+const actions = {
+    increment: "INCREMENT",
+    decrement: "DECREMENT",
+    incrementByAmount: "INCREMENT_BY_AMOUNT",
+    init: "INIT"
+}
+
 // Store
 const store = createStore(reducer, applyMiddleware(logger.default, thunk)); // createStore is deprecated, we can use legacy_createStore as createStore
 
@@ -15,10 +23,10 @@ function reducer(state={amount: 1}, action) {
             return {...state, amount: state.amount - 1};
         case "INCREMENT_BY_AMOUNT":
             return {...state, amount: state.amount + action.payload};
-        case action.init:
+        case actions.init:
             return {...state, amount: action.payload};
-        default: return state;
-
+        default: 
+            return state;
     }
 }
 
@@ -59,27 +67,20 @@ function incrementByAmount(value) {
 }
 
 function initUser(value) {
-    return {type: action.init, payload: value}
+    return {type: actions.init, payload: value}
 }
 
 // store.dispatch(increment());
 // store.dispatch(decrement());
 // store.dispatch(incrementByAmount(23));
 
-// Make action type constant
-const action = {
-    increment: "INCREMENT",
-    decrement: "DECREMENT",
-    incrementByAmount: "INCREMENT_BY_AMOUNT",
-    init: "init"
-}
-
 // dispatching with action creator
 // store.dispatch(initUser(100));
 
 // dispatching without action creator
-// store.dispatch({type: action.increment});
+// store.dispatch({type: actions.increment});
 
+// REDUX-THUNK MIDDLWARE
 
 async function getUser() {
     const {data} = await axios.get('http://localhost:3000/accounts/1');
@@ -90,14 +91,14 @@ async function getUser() {
 // doesn't work
 // async function initUser2() {
 //     const {data} = await axios.get('http://localhost:3000/accounts/1');
-//     return {type: action.init, payload: data.amount};
+//     return {type: actions.init, payload: data.amount};
 // }
 // store.dispatch(initUser2());
 
 
 async function initUser3(dispatch, getState) {
     const {data} = await axios.get('http://localhost:3000/accounts/1');
-    return {type: action.init, payload: data.amount};
+    dispatch({type: actions.init, payload: data.amount});
 }
 store.dispatch(initUser3);
 
