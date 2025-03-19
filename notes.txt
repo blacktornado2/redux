@@ -1,0 +1,51 @@
+- Redux
+- React-Redux
+- Redux-thunk
+- Redux-Toolkit
+- RTK Query
+- Redux Saga
+
+
+-> Redux
+- A pattern
+- A Library
+- Independent of Frameworks
+- State management in JS
+- Avoids prop drilling
+- Global store: access can be from anywhere
+- change state from anywhere
+
+-> When to use Redux?
+- Big Applications
+- High frequency of state changes
+
+-> Redux pattern
+
+Store, State, Action, 
+Action: a plain JS object, (Type + Payload)
+Action doesn't directly change state
+Reducer: changes state
+Reducer: a pure function
+Reducer takes two things: state and action, and returns new state
+Dispatch: function which dispatches action
+Store: state, reducer, dispatch
+Action creator: function which returns an action(object)
+dispatch runs immediately, doesn't wait
+
+Make action name constants and assign variable to them
+
+Principles of Redux:
+1. Global State: single source of truth
+2. Immutable updates: state read-only
+3. Reducer should be pure: no side effects
+
+Immutability:
+-> Don't change state directly, return a new object from reducer
+-> If we are keeping a track of old state, then old state(s) will also be changed if we directly change the state 
+
+Middlewares:
+
+
+-> Things to learn:
+- json-server module
+- redxu-thunk
