@@ -15,7 +15,7 @@ const actions = {
 const store = createStore(combineReducers({
     account: accountReducer,   // new variables will be made in global state with name account and bonus
     bonus: bonusReducer
-}), applyMiddleware(thunk, logger.default));
+}), applyMiddleware(thunk, logger));
 
 function accountReducer(state={amount: 1}, action) {
     switch(action.type) {

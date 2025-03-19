@@ -12,7 +12,7 @@ const actions = {
 }
 
 // Store
-const store = createStore(reducer, applyMiddleware(logger.default, thunk)); // createStore is deprecated, we can use legacy_createStore as createStore
+const store = createStore(reducer, applyMiddleware(logger, thunk)); // createStore is deprecated, we can use legacy_createStore as createStore
 
 // Reducer: Pure function
 function reducer(state={amount: 1}, action) {

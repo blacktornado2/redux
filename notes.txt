@@ -28,7 +28,7 @@ Reducer: changes state
 Reducer: a pure function
 Reducer takes two things: state and action, and returns new state
 Dispatch: function which dispatches action
-Store: state, reducer, dispatch
+Store: state + reducer + dispatch
 Action creator: function which returns an action(object)
 dispatch runs immediately, doesn't wait
 
@@ -45,8 +45,18 @@ Immutability:
 
 Middlewares:
 
+-> React-Redux
+- React doesn't know about redux variables
+- React only updates UI when we change state variable(made with useState hook)
+- Linking state of react with redux is the primary use of react-redux
+- Wrap top level App component in <Provider> from 'react-redux'
+- useSelector: A hook to access redux store's state 
+- useDispatch : A hook to access redux store's dispatch
+
 -> Things to learn:
 - json-server module
 - redxu-thunk
 - reducer function to be used in thunk
 - three actions: pending, success and failed 
+
+
