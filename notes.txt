@@ -5,6 +5,7 @@
 - RTK Query
 - Redux Saga
 
+-> Create a React app using vite: npm create vite@latest my-app -- --template react
 
 -> Redux
 - A pattern
@@ -52,6 +53,15 @@ Middlewares:
 - Wrap top level App component in <Provider> from 'react-redux'
 - useSelector: A hook to access redux store's state 
 - useDispatch : A hook to access redux store's dispatch
+
+-> Redux Toolkit
+- configureStore to setup store 
+- We make slices(by createSlice)
+- createSlice takes three params: name, initialState and reducers
+- We can export action creators(same name as reducers) and whole reducer from the slice
+- react-redux doesn't come along redux toolkit, we have to install it separately
+
+
 
 -> Things to learn:
 - json-server module

@@ -12,7 +12,7 @@ const Account = () => {
   return (
     <div>
       <h2>Account Component</h2>
-      <h3>Amount: {amount}</h3>
+      <h3>Current Amount: {amount}</h3>
         <button onClick={() => dispatch(increment())}>Increment</button>
         <button onClick={() => dispatch(decrement())}>Decrement</button>
         <input type="text" onChange={(e) => setValue(+e.target.value)} name="" id="" />
