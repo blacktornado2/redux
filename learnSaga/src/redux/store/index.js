@@ -6,6 +6,9 @@ import { rootReducer } from "../reducers";
 
 const sagaMiddleware = createSagaMiddleware();
 
-export default store = createStore(rootReducer, applyMiddleware(sagaMiddleware)) 
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware)) 
+export default store;
 
-sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga);
+
+export const action = (type) => store.dispatch({ type });

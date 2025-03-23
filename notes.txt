@@ -1,6 +1,6 @@
 - Redux
 - React-Redux
-- Redux-thunk
+- Redux-Thunk
 - Redux-Toolkit
 - RTK Query
 - Redux Saga
@@ -14,7 +14,7 @@
 - State management in JS
 - Avoids prop drilling
 - Global store: access can be from anywhere
-- change state from anywhere
+- change state from anywhere, using actions
 
 -> When to use Redux?
 - Big Applications
@@ -22,30 +22,30 @@
 
 -> Redux pattern
 
-Store, State, Action, 
-Action: a plain JS object, (Type + Payload)
-Action doesn't directly change state
-Reducer: changes state
-Reducer: a pure function, no side effects
-Reducer takes two things: state and action, and returns new state
-Dispatch: function which dispatches action
-Store: state + reducer + dispatch
-Action creator: function which returns an action(object)
-dispatch runs immediately, doesn't wait
+- Terms: Store, State, Action, Action creators, Side effects, Middlewares 
+- Action: a plain JS object, (Type + Payload), ex: { type: "FETCH_USER", paylaod: { userId: "32da13a9f7"} }
+- Action doesn't directly change state
+- Reducer: changes state, not directly
+- Reducer: a pure function, no side effects
+- Reducer takes two things: state and action, and returns new state
+- Dispatch: function which dispatches action
+- Store: state + reducer + dispatch
+- Action creator: function which returns an action(object)
+- dispatch runs immediately, doesn't wait
+- Middlewares are used for handling side effects
+- Side effects: API calls, storing or retrieving cache(localStorage), setting timers, etc.
 
-Make action name constants and assign variable to them
+-> Best practices:
+- Make action name constants and assign variable to them
 
-Principles of Redux:
+-> Principles of Redux:
 1. Global State: single source of truth
 2. Immutable updates: state read-only
 3. Reducer should be pure: no side effects
 
-Immutability:
--> Don't change state directly, return a new object from reducer
--> If we are keeping a track of old state, then old state(s) will also be changed if we directly change the state 
-
-Middlewares:
-- Handles side effects like API calls, access browser's localStorage, Generate random numbers, 
+-> Immutability:
+- Don't change state directly, return a new object from reducer
+- If we are keeping a track of old state, then old state(s) will also be changed if we directly change the state 
 
 -> React-Redux
 - React doesn't know about redux variables
@@ -62,10 +62,18 @@ Middlewares:
 - We can export action creators(same name as reducers) and whole reducer from the slice
 - react-redux doesn't come along redux toolkit, we have to install it separately
 
+-> Middlewares:
+- Handles side effects like API calls, access browser's localStorage, Generate random numbers
+- common middlewares: redux-thunk, redux-saga 
+
 -> Redux-Saga
 - A middleware library
 - Side effects easier to manage
 - Easier to execute, test and handle failures
+- Saga is like a separate thread in your application that's solely responsible for side effects. 
+- redux-saga is a redux middleware, which means this thread can be started, paused and cancelled from the main application with normal redux actions
+- A saga has access to the full redux application state and it can make API calls and dispatch redux actions.
+- Difference from redux-thunk: No callback hell, actions stay pure, easier to test asynchronous flows
 
 -> Things to learn:
 - json-server module
