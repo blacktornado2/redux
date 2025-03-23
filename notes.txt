@@ -26,7 +26,7 @@ Store, State, Action,
 Action: a plain JS object, (Type + Payload)
 Action doesn't directly change state
 Reducer: changes state
-Reducer: a pure function
+Reducer: a pure function, no side effects
 Reducer takes two things: state and action, and returns new state
 Dispatch: function which dispatches action
 Store: state + reducer + dispatch
@@ -45,6 +45,7 @@ Immutability:
 -> If we are keeping a track of old state, then old state(s) will also be changed if we directly change the state 
 
 Middlewares:
+- Handles side effects like API calls, access browser's localStorage, Generate random numbers, 
 
 -> React-Redux
 - React doesn't know about redux variables
@@ -61,7 +62,10 @@ Middlewares:
 - We can export action creators(same name as reducers) and whole reducer from the slice
 - react-redux doesn't come along redux toolkit, we have to install it separately
 
-
+-> Redux-Saga
+- A middleware library
+- Side effects easier to manage
+- Easier to execute, test and handle failures
 
 -> Things to learn:
 - json-server module
