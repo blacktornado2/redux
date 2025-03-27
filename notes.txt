@@ -66,19 +66,19 @@
 - Handles side effects like API calls, access browser's localStorage, Generate random numbers
 - common middlewares: redux-thunk, redux-saga 
 
--> Redux-Saga
+-> Redux-Saga 💻
 - A middleware library
 - Side effects easier to manage, keep side effects out from reducers
 - Easier to execute, test and handle failures
 - Saga is like a separate thread in your application that's solely responsible for side effects. 
 - redux-saga is a redux middleware, which means this thread can be started, paused and cancelled from the main application with normal redux actions
-- A saga has access to the full redux application state and it can make API calls and dispatch redux actions.
+- A saga has access to the full redux application state, it can make API calls, dispatch redux actions, call another saga, access cache.
 - Difference from redux-thunk: No callback hell, actions stay pure, easier to test asynchronous flows
 
 1. Sagas:
 - Sagas are generator functions.
 - They listen for dispatched actions and execute side effects in response.
-- They can dispatch actions, call APIs, and perform other asynchronous tasks.
+- They can dispatch actions, call APIs, call another saga and perform other asynchronous tasks.
 
 2. Generator Functions:
 - Generator functions are defined using the function* syntax.
@@ -88,11 +88,12 @@
 3. Effects:
 - Effects are plain JavaScript objects that instruct the Redux Saga middleware to perform certain tasks.
 - Redux Saga provides a set of built-in effects, such as take, put, call, and fork
-call:
-put: dispatches action
-take(pattern): listens for actions matching the pattern and yields the action
-takeLatest: ensures that only the most recent request is processed, canceling any previous ones.
-takeEvery: every request is processed, and doesn't cancel previous requests
+- call(fn, ...args):
+- put(action): dispatches action
+- take(pattern): listens for actions matching the pattern and yields the action
+- takeLatest(pattern, saga, ...args): ensures that only the most recent request is processed, canceling any previous ones.
+- takeEvery(pattern, saga, ...args): every request is processed, and doesn't cancel previous requests
+- Here pattern is action constant(string)
 
 * The 'yield' keyword pauses the saga until the promise returned by fetchUserData resolves
 
